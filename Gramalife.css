@@ -26,5 +26,14 @@ body
     background-size:cover;
     background-repeat:no-repeat;
     position:relative;
+    height:100vh;
+    overflow: hidden;   
     
 }
+.content
+{
+    overflow-y: auto;
+    height: calc(100vh); 
+
+}
+
