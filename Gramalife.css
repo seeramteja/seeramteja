@@ -2,6 +2,7 @@ h1
 {
     font-family:cursive;
     text-align: center;
+    color:white
    
 }
 h3
@@ -24,5 +25,6 @@ body
     background-image: url('12VZ2YARADABEACH.jpg');
     background-size:cover;
     background-repeat:no-repeat;
+    position:relative;
     
 }
