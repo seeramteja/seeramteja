@@ -21,10 +21,11 @@ table.fixed
 body
 {
     background-image: url('12VZ2YARADABEACH.jpg');
-    background-size:contain;
+    background-size:cover;
     background-repeat:no-repeat;
     position:relative;
     height:10vh;
+    width:1000px
     overflow: hidden;   
 }
 .content
