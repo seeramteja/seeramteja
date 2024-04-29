@@ -2,14 +2,12 @@ h1
 {
     font-family:cursive;
     text-align: center;
-    color:white
-   
+    color:white   
 }
 h3
 {
     font-family:cursive;
-    text-align: center;
-    
+    text-align: center;    
 }
 
 table.auto
@@ -28,12 +26,10 @@ body
     position:relative;
     height:100vh;
     overflow: hidden;   
-    
 }
 .content
 {
     overflow-y: auto;
-    height: 100vh; 
-
+    height: 100vh;
 }
 
