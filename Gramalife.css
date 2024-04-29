@@ -33,7 +33,7 @@ body
 .content
 {
     overflow-y: auto;
-    height: calc(100vh); 
+    height: 100vh; 
 
 }
 
