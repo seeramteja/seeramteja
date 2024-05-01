@@ -34,3 +34,13 @@ body
     height: 100vh;
 }
 
+.gap40
+{
+    margin-bottom: 80px;
+}
+.border
+{
+    border-width:1px;
+    border-color: white;
+    border-style: solid;
+}
