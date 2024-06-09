@@ -1,27 +1,117 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta name="viewport" content="width=device-width, height=device-width , initial-scale=1.0">
-        <link rel="stylesheet" href="Gramalife.css" media="all"/>
-         
-    </head>
+        <meta name="viewport" content="width=device-width, initial-scale=0">
+        <title>weather app</title>
 
-    <body>  
-        <table class="logo_table">
-            <tr>
-                <td> <h1>Gramalife</h1>
-                    <img class="logo_properties" src="village.jpg">
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <form>
-                        <textarea rows="1" cols="28" name="search" style="resize:none"></textarea>
-                        <a href="yarada.html" target="_blank"> <input type="button" name="search" value="search" ></a>
-                    </form>
-                </td>
-            </tr>
-        </table>
+        <!-- 
+        The rel attribute in the <link> element stands for "relationship" and specifies the relationship
+        between the current document and the linked resource.It defines the type of the link's relationship
+        to the document.
+        -->
+        <link rel="stylesheet" href="style.css">
         
+
+    </head>
+    <body>
+        <!-- all the work is going here in this card -->
+        <div class="card">                                              
+
+
+            <!-- search bar and search button-->
+            <div class="search">   
+                <input type="text" placeholder="enter city name" spellcheck="false">
+                <button><img src="images/search.png"></button>
+            </div>
+
+
+            <!--weather icon, city name , temp  -->
+            <div class="weather">                                       
+                <img class="weather-icon" src="images/rain.png" >
+                <h1 class="temp">temp</h1>
+                <h2 class="city">city</h2>
+                </br>
+
+                 
+
+                <!-- other details of climate and also acting a continer-->
+                <div class="details">                                      
+
+                    <div class="col">
+                        <img src="images/humidity.png" alt="humidity">
+                        <div class="">
+                            <p class="humidity">0%</p>
+                            <p>humidity</p>
+                        </div>
+                    </div>
+                    </br>
+                    
+                  
+
+                    <div class="col">
+                        <img src="images/wind.png" alt="wind">
+                        <div class="">
+                            <p class="wind">0 kpmh</p>
+                            <p>windspeed</p>
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+
+        </div>
+        
+        <script>
+
+            const apikey="d11b3c3ad36d94c15e42f0e7537c9b10";
+            const apiurl="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+            const searchBox=document.querySelector(".search input")
+            const searchBtn=document.querySelector(".search button")
+            const weatherIcon=document.querySelector(".weather-icon");
+
+            
+            async function checkWeather(city){
+                const response=await fetch(apiurl + city +`&appid=${apikey}`);
+                
+                <!-- converting response object data to JSON format and assigning its result to data in JSON format -->
+                var data = await response.json();
+
+                console.log(data);
+
+                document.querySelector(".city").innerHTML=data.name;
+                document.querySelector(".temp").innerHTML=Math.round(data.main.temp) +"°C";
+                document.querySelector(".wind").innerHTML=data.wind.speed + " kmph";
+                document.querySelector(".humidity").innerHTML=data.main.humidity + " %";
+
+                if(data.weather[0].main=="Clouds"){
+                    weatherIcon.src="images/clouds.png";
+                    
+                }
+                else if(data.weather[0].main=="Clear"){
+                    weatherIcon.src="images/clear.png";
+                    
+                }
+                else if(data.weather[0].main=="Rain"){
+                    weatherIcon.src="images/rain.png";
+                    
+                }
+                else if(data.weather[0].main=="Drizzle"){
+                    weatherIcon.src="images/Drizzle.png";
+                    
+                }
+
+
+            }
+
+            searchBtn.addEventListener("click", ()=>{
+                checkWeather(searchBox.value);
+            })
+            
+
+
+
+       </script>
     </body>
 </html>
